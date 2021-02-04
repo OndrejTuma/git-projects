@@ -1,0 +1,28 @@
+{
+  "name": "git-projects",
+  "version": "1.0.0",
+  "description": "Little Node.js organizer for git branches in my local projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev -p 8123",
+    "start": "next start -p 8123"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rootre/git-projects.git"
+  },
+  "author": "Ondřej Tůma <tu.ondrej@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rootre/git-projects/issues"
+  },
+  "homepage": "https://github.com/Rootre/git-projects#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "next": "^10.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "simple-git": "^2.31.0"
+  }
+}
