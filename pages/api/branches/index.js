@@ -27,15 +27,19 @@ export default async (req, res) => {
 
   const git = simpleGit(projectDir + workingDir)
 
-  const { all } = await git.branchLocal()
+  try {
+    const { all } = await git.branchLocal()
 
-  // Branch does not exists, create one
-  if (!all.find(name => name === branchName)) {
-    await git.fetch()
-    await git.branch(['--no-track', branchName, 'origin/master'])
+    // Branch does not exists, create one
+    if (!all.find(name => name === branchName)) {
+      await git.fetch()
+      await git.branch(['--no-track', branchName, 'origin/master'])
+    }
+    // checkout branch
+    await git.checkout(branchName)
+
+    res.status(200).json({ success: true })
+  } catch (e) {
+    res.status(400).json({error: true, message: `Project: ${workingDir}\n${e.message}`})
   }
-  // checkout branch
-  await git.checkout(branchName)
-
-  res.status(200).json({ success: true })
 }
