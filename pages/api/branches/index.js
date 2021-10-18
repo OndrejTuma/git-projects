@@ -40,6 +40,6 @@ export default async (req, res) => {
 
     res.status(200).json({ success: true })
   } catch (e) {
-    res.status(400).json({error: true, message: `Project: ${workingDir}\n${e.message}`})
+    res.status(400).json({error: true, message: `Project: ${workingDir}\nBranch: ${branchName}\n${e.message}`})
   }
 }
